@@ -36,6 +36,7 @@ There are two ways to create a graph
 
 //Graph with Adjacency Matrix:
 
+import java.util.*;
 class CreateGraph{
     int V;
     int[][] arr;
@@ -66,12 +67,19 @@ class CreateGraph{
 
 public class Graph{
     public static void main(String[] args) {
-        CreateGraph g= new CreateGraph(4);
-        g.addEdge(0, 1);
-        g.addEdge(0, 2);
-        g.addEdge(1, 3);
-        g.addEdge(2, 3);
+        Scanner sc= new Scanner(System.in);
+        int V= sc.nextInt();
+
+        CreateGraph g= new CreateGraph(V);
+        int E= sc.nextInt();
+
+        for(int i=0; i<E; i++){
+            int u=sc.nextInt();
+            int v=sc.nextInt();
+            g.addEdge(u, v);
+        }
 
         g.print();
     }
 }
+

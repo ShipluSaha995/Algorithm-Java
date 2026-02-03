@@ -85,7 +85,7 @@ public class Graph{
 */
 
 // Graph with adjacency list 
-
+/*
 import java.util.*;
 
 class Glist{
@@ -140,3 +140,76 @@ public class Graph{
     }
 }
 
+*/
+
+/* Types of graphs
+
+1. Undirected Graph 
+2. Directed Graph
+3. Weighted Graph
+4. Complete Graph
+
+
+*/
+
+
+ // 1. Undirected Graph: An undirected graph is a graph where edges have no directions.
+ 
+ //code :
+
+ import java.util.*;
+
+ class Graphlist{
+    int V;
+    ArrayList<ArrayList<Integer>>adj;
+
+    Graphlist(int V){
+
+        this.V=V;
+        adj=new ArrayList<>();
+
+        for(int i=0; i<V; i++){
+            adj.add(new ArrayList<>());
+        }
+    }
+
+    void addedge(int u, int v){
+        if(u<0||v<0||u>=V||v>=V){
+            return;
+        }
+
+        adj.get(u).add(v);
+        adj.get(v).add(u);
+    }
+
+    void print(){
+        for(int i=0; i<V; i++){
+            System.out.print(i+"->");
+            for(int node:adj.get(i)){
+                System.out.print(node+" ");
+            }
+            System.out.println();
+        }
+    }
+ }
+
+ public class Graph{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int V = sc.nextInt();
+        int E = sc.nextInt();
+
+        Graphlist g = new Graphlist(V);
+
+        for(int i =0; i<E; i++){
+            int u= sc.nextInt();
+            int v = sc.nextInt();
+
+            g.addedge(u, v);
+        }
+
+        g.print();
+
+    }
+ }

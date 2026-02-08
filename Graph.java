@@ -352,7 +352,7 @@ key point :
 
 */
 
-import java.util.*;
+/*import java.util.*;
 class CGraph{
     int V;
     ArrayList<ArrayList<Integer>>adj;
@@ -395,4 +395,25 @@ public class Graph{
         g.print();
         sc.close();
     }
-}
+}*/
+
+
+// Degree 
+/*
+Degree of a vertex = number of edges incident to it.
+
+0 — 1
+|   |
+2 — 3
+
+IN directed graph dgree is split into to parts 
+1. In degree: Number of edges coming into vertex
+2. Out degree: Number of edges going out of a vertex.
+
+0 → 1 → 2
+↓
+3
+
+Degree = indegree + outdegree
+
+*/

@@ -417,3 +417,33 @@ IN directed graph dgree is split into to parts
 Degree = indegree + outdegree
 
 */
+
+// Path
+
+/*
+The path is a sequence of vertices  that connect two nodes in a graph
+The length of a path is the number of edges it contains.
+
+simple path: No vertex is repeated
+
+0 → 1 → 2 → 3   ✅
+0 → 1 → 2 → 1   ❌
+
+Closed Path: Starting and the ending vertex are the same
+
+0 → 1 → 2 → 0
+
+Cycle: a closed simple path no repeated vertex except first = last
+
+0 → 1 → 2 → 0
+
+Direcetd path : Direction of the edges must be followed
+
+0 → 1 → 3   ✅
+1 → 0 → 3   ❌
+
+Undirected Path : Edges can be traversed in both ways 
+
+0-1-2-3-5-6
+
+*/

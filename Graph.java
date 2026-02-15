@@ -464,7 +464,7 @@ key points :
 
 
 */
-
+/* 
 import java.util.*;
 
 class BFS{
@@ -525,5 +525,64 @@ public class Graph{
 
         int start = sc.nextInt();
         b.bfs(start);
+    }
+}*/
+
+import java.util.*;
+
+class DFS {
+    int V;
+    ArrayList<ArrayList<Integer>> adj;
+
+    DFS(int V) {
+        this.V = V;
+        adj = new ArrayList<>();
+        for(int i = 0; i < V; i++)
+            adj.add(new ArrayList<>());
+    }
+
+    void addEdge(int u, int v) {
+        adj.get(u).add(v);
+        adj.get(v).add(u);   
+    }
+
+    void dfs(int start) {
+        boolean[] visited = new boolean[V];
+        dfsUtil(start, visited);
+    }
+
+    void dfsUtil(int v, boolean[] visited) {
+        visited[v] = true;
+        System.out.print(v + " ");
+
+        for(int neighbor : adj.get(v)) {
+            if(!visited[neighbor])
+                dfsUtil(neighbor, visited);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("vertices: ");
+        int V = sc.nextInt();
+
+        System.out.print("edges: ");
+        int E = sc.nextInt();
+
+        DFS d = new DFS(V);
+
+        System.out.println("Nodes:");
+        for(int i = 0; i < E; i++) {
+            int u = sc.nextInt();
+            int v = sc.nextInt();
+            d.addEdge(u, v);
+        }
+
+        System.out.print("starting: ");
+        int start = sc.nextInt();
+
+    
+        d.dfs(start);
     }
 }

@@ -1,6 +1,6 @@
 /*undirected garaph adjacency matrix*/
 
-#include <bits/stdc++.h>
+/*#include <bits/stdc++.h>
 using namespace std;
 
 class Graph{
@@ -44,3 +44,51 @@ int main(){
     return 0;
 }
 
+*/
+
+/* With adjacency list*/
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Graph{
+private:
+    int V;
+    vector<vector<int>>adj;
+public:
+    Graph(int vertices){
+        V=vertices;
+        adj.resize(V);
+    }
+
+    void addEdge(int u, int v){
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+
+    void display(){
+        for(int i=0; i<V; i++){
+            cout<<i<<"->";
+            for(int v:adj[i]){
+                cout<<v<<" ";
+            }
+            cout<<"\n";
+        }
+    }
+
+};
+
+int main(){
+    int V, E;
+    cin>>V>>E;
+
+    Graph g(V);
+    for(int i=0; i<E; i++){
+        int u, v;
+        cin>>u>>v;
+        g.addEdge(u,v);
+    }
+
+    g.display();
+    return 0;
+}

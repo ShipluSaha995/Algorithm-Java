@@ -48,7 +48,7 @@ int main(){
 
 /* With adjacency list*/
 
-#include <bits/stdc++.h>
+/*#include <bits/stdc++.h>
 using namespace std;
 
 class Graph{
@@ -90,5 +90,52 @@ int main(){
     }
 
     g.display();
+    return 0;
+}*/
+
+//weighted 
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Graph{
+private:
+    int V;
+    vector<vector<pair<int,int>>>adj;
+public:
+    Graph(int vertices){
+        V=vertices;
+        adj.resize(V);
+    }
+
+    void addEdge(int u, int v, int w){
+        adj[u].push_back({v,w});
+        adj[v].push_back({u,w});
+    }
+
+    void dispaly(){
+        for(int i=0; i<V; i++){
+            cout<<i<<"->";
+            for(auto edge:adj[i]){
+                cout<<"("<<edge.first<<", "<<edge.second<<") ";
+            }
+            cout<<"\n";
+        }
+    }
+};
+
+int main(){
+    int V,E;
+    cin>>V>>E;
+    Graph g(V);
+
+    for(int i=0; i<E; i++){
+        int u, v, w ;
+        cin>>u>>v>>w;
+
+        g.addEdge(u,v,w);
+    }
+
+    g.dispaly();
     return 0;
 }

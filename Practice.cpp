@@ -95,7 +95,7 @@ int main(){
 
 //weighted 
 
-#include <bits/stdc++.h>
+/*#include <bits/stdc++.h>
 using namespace std;
 
 class Graph{
@@ -137,5 +137,65 @@ int main(){
     }
 
     g.dispaly();
+    return 0;
+}*/
+
+//dfs
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Graph{
+private:    
+    int V;
+    vector<vector<int>>adj;
+    void dfs(int node, vector<bool>& visited){
+        visited[node]=true;
+        cout<<node<<" ";
+
+        for(int neighbor:adj[node]){
+            if(!visited[neighbor]){
+               dfs(neighbor, visited); 
+            }
+        }
+    }
+
+public:
+    Graph(int vertices){
+        V=vertices;
+        adj.resize(V);
+    }
+
+    void addEdge(int u, int v){
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+
+    void DFS(int start){
+        vector<bool>visited(V, false);
+        dfs(start, visited);
+        cout<<"\n";
+    }
+
+};
+
+
+int main(){
+    int V,E;
+    cin>>V>>E;
+
+    Graph g(V);
+
+    for(int i=0; i<E; i++){
+        int u , v;
+        cin>>u>>v;
+        g.addEdge(u, v);
+
+    }
+
+    int start;
+    cin>>start;
+
+    g.DFS(start);
     return 0;
 }
